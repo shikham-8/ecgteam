@@ -1,8 +1,9 @@
 import React from 'react';
+import Text from 'react-native';
 
 class ECGPage extends React.Component {
     render() {
-        <h1>ECG Page!</h1>
+        <Text>ECG Page!</Text>
     };
 }
 

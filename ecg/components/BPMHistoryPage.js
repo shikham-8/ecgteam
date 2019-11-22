@@ -1,8 +1,9 @@
 import React from 'react';
+import Text from 'react-native';
 
 class BPMHistoryPage extends React.Component {
     render() {
-        <h1>BPM History Page!</h1>
+        <Text>BPM History Page!</Text>
     };
 }
 

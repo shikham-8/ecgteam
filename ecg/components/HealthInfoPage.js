@@ -1,8 +1,9 @@
 import React from 'react';
+import Text from 'react-native';
 
 class HealthInfoPage extends React.Component {
     render() {
-        <h1>Health Info Page!</h1>
+        <Text>Health Info Page!</Text>
     };
 }
 
