@@ -1,10 +1,12 @@
 import React from 'react';
-import Text from 'react-native';
+import { Text, View } from 'react-native';
 
-class HealthInfoPage extends React.Component {
+export default class ECGPage extends React.Component {
     render() {
-        <Text>Health Info Page!</Text>
-    };
+      return (
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <Text>Health Info Page!</Text>
+        </View>
+      );
+    }
 }
-
-export default HealthInfoPage;
