@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": null,
-  "packagerPort": null,
-  "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "expoServerPort": 19000,
+  "packagerPort": 19001,
+  "packagerPid": 32035,
+  "expoServerNgrokUrl": "https://p4-zux.anonymous.ecg.exp.direct",
+  "packagerNgrokUrl": "https://packager.p4-zux.anonymous.ecg.exp.direct",
+  "ngrokPid": 32064
 }
