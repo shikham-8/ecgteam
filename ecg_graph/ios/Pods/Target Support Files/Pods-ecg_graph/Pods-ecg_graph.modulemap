@@ -1,0 +1,6 @@
+module Pods_ecg_graph {
+  umbrella header "Pods-ecg_graph-umbrella.h"
+
+  export *
+  module * { export * }
+}
