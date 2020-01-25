@@ -7,35 +7,17 @@ import {
   Button,
   Dimensions,
 } from 'react-native';
-import { LineChart } from 'react-native-chart-kit';
+import DynamicGraph from '../components/Graph'
 
 export default function HomeScreen() {
-  const [dataArr, setData] = useState(Array(12).fill(0));
 
-  const updateData = () => {
-    setData( dataArr => [
-      Math.random() * 50, 
-      ...dataArr.slice(0, -1)
-    ]);
+  const addData = () => {
+    DynamicGraph.updateData(Math.random()*50);
   };
 
-  const clearData = () => {
-    setData( dataArr => [...Array(12).fill(0)]);
+  const resetData = () => {
+    DynamicGraph.clearData();
   };
-
-  const screenWidth = Dimensions.get('window').width
-  const data = {
-    datasets: [{
-      data: dataArr,
-      //color: (opacity = 1) => `rgba(134, 65, 244, ${opacity})` // optional
-    }]
-  }
-  const chartConfig = {
-    backgroundGradientFrom: '#1E2923',
-    backgroundGradientTo: '#08130D',
-    color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
-    strokeWidth: 2 // optional, default 3
-  }
 
   return (
     <View style={styles.container}>
@@ -46,28 +28,24 @@ export default function HomeScreen() {
 
         <View style={styles.getStartedContainer}>
           <Text style={styles.getStartedText}>
-            Hi
+            Heyyoooo
           </Text>
         </View>
-
-        <LineChart
-          data={data}
-          width={screenWidth}
-          height={220}
-          chartConfig={chartConfig}
-          withShadow={false}
-          withDots={false}
-          withInnerLines={false}
-        />
-
-        <Button
-          title="New Data"
-          onPress={updateData}
-        />
-        <Button
-          title="Reset"
-          onPress={clearData}
-        />
+        <DynamicGraph/>
+        <View>
+          <Button
+            title="New Data"
+            style={styles.button}
+            onPress={addData}
+          />
+          <Button
+            title="Reset"
+            onPress={resetData}
+          />
+          <Button 
+            title="Save"
+          />
+        </View>
 
       </ScrollView>
     </View>
@@ -81,7 +59,7 @@ HomeScreen.navigationOptions = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#000',
   },
   contentContainer: {
     paddingTop: 30,
