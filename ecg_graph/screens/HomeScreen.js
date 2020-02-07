@@ -7,47 +7,13 @@ import {
   Button,
   Dimensions,
 } from 'react-native';
-import DynamicGraph from '../components/Graph'
+import GraphScreen from '../components/Graph'
 
 export default function HomeScreen() {
 
-  const addData = () => {
-    DynamicGraph.updateData(Math.random()*50);
-  };
-
-  const resetData = () => {
-    DynamicGraph.clearData();
-  };
-
   return (
     <View style={styles.container}>
-      <ScrollView
-        style={styles.container}
-        contentContainerStyle={styles.contentContainer}>
-
-
-        <View style={styles.getStartedContainer}>
-          <Text style={styles.getStartedText}>
-            Heyyoooo
-          </Text>
-        </View>
-        <DynamicGraph/>
-        <View>
-          <Button
-            title="New Data"
-            style={styles.button}
-            onPress={addData}
-          />
-          <Button
-            title="Reset"
-            onPress={resetData}
-          />
-          <Button 
-            title="Save"
-          />
-        </View>
-
-      </ScrollView>
+      <GraphScreen></GraphScreen>
     </View>
   );
 }
@@ -59,7 +25,7 @@ HomeScreen.navigationOptions = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: '#fff',
   },
   contentContainer: {
     paddingTop: 30,
