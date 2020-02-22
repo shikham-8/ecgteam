@@ -6,6 +6,7 @@ import {
   View,
   Button,
   Dimensions,
+  AsyncStorage,
 } from 'react-native';
 import { LineChart } from 'react-native-chart-kit';
 import NativeTachyons from 'react-native-style-tachyons';
@@ -36,6 +37,30 @@ class GraphScreen extends Component {
         })
     }
 
+    storeData = async (data) => {
+      var date = new Date().getFullYear() + '/' + new Date().getMonth() + '/' + new Date().getDate();
+      var time = new Date().getHours() + ':' + new Date().getMinutes() + ':' + new Date().getSeconds();
+      var dataKey = date + ' ' + time;
+      //console.log(dataKey)
+      //console.log(data.toString())
+
+      try {
+        await AsyncStorage.setItem(dataKey, data.toString());
+      } catch (error) {
+        // Error saving data
+      }
+
+      //NOTE: still in string form
+      // try {
+      //   const value = await AsyncStorage.getItem(dataKey);
+      //   if (value !== null) {
+      //   // We have data!!
+      //     console.log(value.split(',')[0]);
+      //   }
+      // } catch (error) {
+      //         // Error retrieving data
+      // }
+    }
 
     render() { 
         const chartConfig = {
@@ -131,6 +156,7 @@ class GraphScreen extends Component {
                             title="Stop and Save"
                             color='#800000'
                             type='raised'
+                            onPress={() => this.storeData(this.state.dataArray)}
                         />
                     </View>
 
